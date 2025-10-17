@@ -47,7 +47,7 @@ def test_header_elements_displayed(web_browser, chrome_options):
                 check.is_true(element.is_clickable(), f'Элемента {text_element} не кликабелен')
 
 @allure.feature("Главная страница")
-@allure.story("Хэдер, ввод запроса в поисковую строку и результат отображения")
+@allure.story("Хэдер, ввод запроса в поисковую строку и результат отображения поиска")
 def test_search_product_valid_query(web_browser):
     with allure.step('Запуск и настройка браузера'):
         driver = MainPage(web_browser)
@@ -209,7 +209,7 @@ def test_add_goods_at_favorites(web_browser):
         assert element1 == element2
 
 
-@allure.feature('Главная страница,Каталог')
+@allure.feature('Главная страница')
 @allure.story('Фильтр "Сделано в Беларуси" работает корректно')
 def test_filter_made_in_belarus(web_browser):
     with allure.step('Запуск и настройка браузера'):

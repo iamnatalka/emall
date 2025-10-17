@@ -42,6 +42,10 @@ async def run_tests(update: Update, context: ContextTypes.DEFAULT_TYPE):
         update
     )
 
+    # Проверка наличия результатов тестов
+    # if not any(results_dir.iterdir()):
+    #     await update.message.reply_text("⚠️ Внимание: allure-results пуст. Возможно, тесты не запустились.")
+    #     return
 
     # Отправка сокращенного отчета
     short_result = "\n".join([line for line in result.split("\n") if "FAILED" in line or "ERROR" in line])
@@ -121,7 +125,7 @@ async def full_cycle(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 async def about(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Информация о боте"""
-    about_text = """
+    about_text = r"""
 🤖 *Allure Report Bot*
 Версия: 21
 Автор: QA Engineer Наталья Романчук
